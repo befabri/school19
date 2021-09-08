@@ -1,30 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_ft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/06 22:00:49 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/06 22:01:14 by bfabri           ###   ########.fr       */
+/*   Created: 2021/09/08 10:09:05 by bfabri            #+#    #+#             */
+/*   Updated: 2021/09/08 10:09:05 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+void	ft_ft(int *nbr)
 {
-	write(1, &c, 1);
-}
-
-void	ft_print_numbers(void)
-{
-	char	c;
-
-	c = '0';
-	while (c <= '9')
-	{
-		ft_putchar(c);
-		c++;
-	}
+	*nbr = 42;
 }

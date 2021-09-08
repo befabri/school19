@@ -17,31 +17,62 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	ft_put_combn(int nb)
+void	ft_put_comb(char first, char second, char third)
 {
-	if (nb >= 10)
+	ft_putchar(first);
+	ft_putchar(second);
+	ft_putchar(third);
+	if (first != '7' || second != '8' || third != '9')
 	{
-		ft_put_combn(nb / 10);
-		ft_put_combn(nb % 10);
-	}
-	else
-	{
-		ft_putchar(nb + '0');
+		ft_putchar(',');
+		ft_putchar(' ');
 	}
 }
 
-void	ft_print_combn(int n)
+bool	check(char a, char b)
 {
-	if (n > 0 && n < 10)
+
+	if (a != b)
 	{
-		while ()
+		continue;
+	}
+	else
+	{
+		return false;
+	}
+	return true;
+}
+
+void	ft_print_comb(int n)
+{
+	char tab[n];
+	int compteur;
+
+	compteur = 1;
+
+	while (++compteur < n)
+	{
+		tab[compteur] = compteur;
+	}
+
+	while (n >= 1 && tab[0] <= (10 - n))
+	{
+		while (compteur<n)
+		{
+			check(tab[0], tab[compteur]);
+		}
+
+		tab[n]++;
+		if (tab[n] == '9' + 1)
+			tab[n] = tab[n-1]++ + 1;
+		if (second == '8' + 1)
+			second = first++ + 1;
 	}
 }
 
 int	main(void)
 {
-	ft_print_combn(2);
-	ft_putchar(',');
-	ft_putchar(' ');
+	ft_print_comb(2);
 	return (0);
 }
+
