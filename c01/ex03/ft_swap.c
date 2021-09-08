@@ -5,16 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/08 14:20:19 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/08 14:20:19 by bfabri           ###   ########.fr       */
+/*   Created: 2021/09/09 00:50:36 by bfabri            #+#    #+#             */
+/*   Updated: 2021/09/09 00:50:36 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-void ft_swap(int *a, int *b)
+void	ft_swap(int *a, int *b)
 {
-	int tmp;
+	int	tmp;
 
 	tmp = *a;
 	*a = *b;
