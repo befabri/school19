@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   rush03.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
+/*   By: hbourgeo <hbourgeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/08 14:10:35 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/08 14:10:35 by bfabri           ###   ########.fr       */
+/*   Created: 2021/09/10 19:21:56 by hbourgeo          #+#    #+#             */
+/*   Updated: 2021/09/11 14:00:26 by hbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+void	rush(int x, int y);
 
-void	ft_putchar(char c)
+int	main(void)
 {
-	write(1, &c, 1);
-}
+	int	x;
+	int	y;
 
-void	ft_print_alphabet(void)
-{
-	int	c;
-
-	c = 'a';
-	while (c <= 'z')
-	{
-		ft_putchar(c);
-		c++;
-	}
+	x = 3;
+	y = 2;
+	rush(x, y);
+	return (0);
 }
