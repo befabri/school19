@@ -10,53 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
 void	ft_sort_int_tab(int *tab, int size)
 {
 	int	tmp;
 	int	i;
-	int c;
-	
-	c = 0;
-	while (c < (size - 1))
+	int swap;
+
+	swap = 1;
+	while (swap==1)
 	{
 		i = 0;
+		swap = -1;
 		while (i < (size - 1))
 		{
 			if (tab[i] > tab[i + 1])
 			{
+				swap = 1;
 				tmp = tab[i];
 				tab[i] = tab[i + 1];
 				tab[i + 1] = tmp;
 			}
 			i++;
 		}
-		c++;
-	}
-}
-
-int	main(void)
-{
-	int		test[] = {4, 2, 7, 8, 3, 1};
-	int		size;
-	int		c;
-
-	size = 6;
-	c = 0;
-	printf("test[%d]-> ", size);
-	while (c < size)
-	{
-		printf("%d", test[c]);
-		c++;
-	}
-	printf("\n");
-	ft_sort_int_tab(test, size);
-	c = 0;
-	printf("test[%d]-> ", size);
-	while (c < size)
-	{
-		printf("%d", test[c]);
-		c++;
 	}
 }
