@@ -1,3 +1,6 @@
 correction.c
 test
 a.out
+.vscode/*
+.vscode
+*.json
