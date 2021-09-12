@@ -14,11 +14,7 @@ void	rush(int x, int y);
 
 int	main(void)
 {
-	int	x;
-	int	y;
-
-	x = 3;
-	y = 2;
-	rush(x, y);
+	rush(2, 3);
 	return (0);
 }
+
