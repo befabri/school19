@@ -22,7 +22,7 @@ void	ft_putstr(char *str)
 	int	c;
 
 	c = 0;
-	while(str[c] != '\0')
+	while (str[c] != '\0')
 	{
 		ft_putchar(str[c]);
 		c++;

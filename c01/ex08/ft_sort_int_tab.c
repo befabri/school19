@@ -14,10 +14,10 @@ void	ft_sort_int_tab(int *tab, int size)
 {
 	int	tmp;
 	int	i;
-	int swap;
+	int	swap;
 
 	swap = 1;
-	while (swap==1)
+	while (swap == 1)
 	{
 		i = 0;
 		swap = -1;
