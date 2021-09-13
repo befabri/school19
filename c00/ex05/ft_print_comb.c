@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 22:04:03 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/12 23:39:25 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/13 12:19:45 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ft_print_comb(void)
 			second++;
 			third = second;
 		}
-		if (second == '9')
+		if (second == '8' + 1)
 		{
 			first++;
 			second = first;
