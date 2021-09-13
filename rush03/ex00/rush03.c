@@ -3,33 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   rush03.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbourgeo <hbourgeo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 19:21:56 by hbourgeo          #+#    #+#             */
-/*   Updated: 2021/09/11 14:00:26 by hbourgeo         ###   ########.fr       */
+/*   Updated: 2021/09/13 10:05:14 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_putchar(char c);
 
-void	filling_rows_columns(int x, int y, int c, int r)
+void	ft_put_rows_columns(int x, int y, int c, int r)
 {
-	if ((r == 1 || r == y) && (c == 1))
-	{
+	if ((c == 1) && (r == 1 || r == y))
 		ft_putchar('A');
-	}
-	else if ((r == 1 || r == y) && (c == x))
-	{
+	else if ((c == x) && (r == 1 || r == y))
 		ft_putchar('C');
-	}
-	else if ((r == 1 || r == y) || (c == 1 || c == x))
-	{
+	else if ((c == 1 || c == x) || (r == 1 || r == y))
 		ft_putchar('B');
-	}	
 	else
-	{
 		ft_putchar(' ');
-	}
 }
 
 void	rush(int x, int y)
@@ -39,7 +31,7 @@ void	rush(int x, int y)
 
 	r = 1;
 	if (x <= 0 || y <= 0)
-		write(1, "ERROR : x and y must be int and greater than 0 !\n", 50);
+		return ;
 	else
 	{
 		while (r <= y)
@@ -47,7 +39,7 @@ void	rush(int x, int y)
 			c = 1;
 			while (c <= x)
 			{
-				filling_rows_columns (x, y, c, r);
+				ft_put_rows_columns (x, y, c, r);
 				c++;
 			}
 			ft_putchar('\n');
