@@ -6,20 +6,20 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 22:42:42 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/11 23:41:00 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/13 11:52:25 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strcpy(char *dest, char *src)
 {
-	int	i;
+	int	c;
 
-	i = 0;
-	while (src[i])
+	c = 0;
+	while (src[c])
 	{
-		dest[i] = src[i];
-		i++;
+		dest[c] = src[c];
+		c++;
 	}
-	dest[i] = '\0';
+	dest[c] = '\0';
 	return (dest);
 }

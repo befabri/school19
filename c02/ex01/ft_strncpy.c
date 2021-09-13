@@ -6,25 +6,25 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 22:54:15 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/12 00:11:17 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/13 11:53:04 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int	i;
+	int	c;
 
-	i = 0;
-	while (src[i] != '\0' && i < n)
+	c = 0;
+	while (src[c] != '\0' && c < n)
 	{
-		dest[i] = src[i];
-		i++;
+		dest[c] = src[c];
+		c++;
 	}
-	while (i < n)
+	while (c < n)
 	{
-		dest[i] = '\0';
-		i++;
+		dest[c] = '\0';
+		c++;
 	}
-	dest[i] = '\0';
+	dest[c] = '\0';
 	return (dest);
 }
