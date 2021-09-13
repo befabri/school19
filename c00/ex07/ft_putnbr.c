@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 18:09:05 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/08 14:07:39 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/13 18:59:55 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,24 @@ void	ft_putchar(char c)
 
 void	ft_putnbr(int nb)
 {
+	if (nb == -2147483648)
+	{
+		ft_putchar('-');
+		ft_putchar('2');
+		nb = 147483648;
+	}
 	if (nb < 0)
 	{
 		ft_putchar('-');
-		nb = -nb;
+		nb *= -1;
 	}
-	if (nb >= 10)
+	if (nb < 10)
 	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
+		ft_putchar(nb + '0');
 	}
 	else
 	{
-		ft_putchar(nb + '0');
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
 	}
 }
