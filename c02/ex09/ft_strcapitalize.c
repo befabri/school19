@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 18:05:13 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/12 20:42:43 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/13 20:52:57 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_str_is_alpha(char c)
 
 char *ft_strcapitalize(char *str)
 {
-	int c;
+	unsigned int c;
 
 	c = 1;
 	str[0] = ft_strupcase(str[0]);
