@@ -6,12 +6,9 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 15:43:33 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/14 10:47:03 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/14 17:55:02 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
-#include <string.h>
 
 unsigned int ft_strlcpy(char *dest, char *src, unsigned int size)
 {
@@ -33,33 +30,4 @@ unsigned int ft_strlcpy(char *dest, char *src, unsigned int size)
 		c++;
 	}
 	return (c);
-}
-
-int	main(void)
-{
-	char			source[] = "moulinette";
-	char			destination[] = "phraseasupprimer";
-	unsigned int	size;
-	unsigned int	size_destination;
-	unsigned int	i;
-	
-	size = 20;
-	printf("Source -> %s\n", source);
-	printf("Destination -> %s\n", destination);
-	unsigned int a = ft_strlcpy(destination, source, size);
-	printf("----- AFTER ft_strcpy -----\n");
-	printf("Size src return: %d\n", a);
-	printf("Destination -> %s\n", destination);
-	size_destination = sizeof(destination);
-	i = 0;
-	while(i<size_destination)
-	{
-		if(destination[i] == '\0') {
-			destination[i] = '|';
-		}
-		printf("%c",destination[i]);
-		i++;
-	}
-	printf("\n");
-	return (0);
 }
