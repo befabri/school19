@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 22:54:15 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/13 16:04:31 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/14 17:44:22 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,5 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 		dest[c] = '\0';
 		c++;
 	}
-	dest[c] = '\0';
 	return (dest);
 }
