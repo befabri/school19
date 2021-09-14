@@ -6,11 +6,11 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 16:19:13 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/14 16:21:50 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/14 17:20:04 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_div_mod(int a, int b, int *div, int *mod)
+void	ft_div_mod(int a, int b, int *div, int *mod)
 {
 	*div = a / b;
 	*mod = a % b;
