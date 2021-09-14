@@ -6,13 +6,13 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 17:53:49 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/12 18:04:59 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/14 17:59:57 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strlowcase(char *str)
+char	*ft_strlowcase(char *str)
 {
-	int c;
+	int	c;
 
 	c = 0;
 	while (str[c] != '\0')
