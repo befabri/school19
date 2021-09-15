@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strncat(char *dest, char *src, unsigned int nb)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
 	unsigned int	c;
 	unsigned int	dest_size;
@@ -26,7 +26,6 @@ char *ft_strncat(char *dest, char *src, unsigned int nb)
 		dest[dest_size + c] = src[c];
 		c++;
 	}
-    dest[dest_size + c] = '\0';
-
-    return dest;
+	dest[dest_size + c] = '\0';
+	return (dest);
 }

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strcat(char *dest, char *src)
+char	*ft_strcat(char *dest, char *src)
 {
 	int	c;
 	int	dest_size;
@@ -26,7 +26,6 @@ char *ft_strcat(char *dest, char *src)
 		dest[dest_size + c] = src[c];
 		c++;
 	}
-    dest[dest_size + c] = '\0';
-
-    return dest;
+	dest[dest_size + c] = '\0';
+	return (dest);
 }

@@ -10,18 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strstr(char *str, char *to_find)
+char	*ft_strstr(char *str, char *to_find)
 {
 	unsigned int	c;
-    unsigned int	i;
+	unsigned int	i;
 
-    c = 0;
-    if (*to_find == '\0')
+	c = 0;
+	if (to_find == '\0')
+		return (str);
+	while (str[c] != '\0')
 	{
-		return (str);	
-	}
-    while (str[c] != '\0')
-    {
 		i = 0;
 		if (str[c] == to_find[i])
 		{
@@ -30,13 +28,10 @@ char *ft_strstr(char *str, char *to_find)
 				c++;
 				i++;
 				if (to_find[i] == '\0')
-				{
 					return (&str[c - i]);
-				}
-			}			
+			}
 		}
-        c -=i;
-		c +=1;
-    }
-    return (0);
+		 c = c - i + 1;
+	}
+	return (0);
 }

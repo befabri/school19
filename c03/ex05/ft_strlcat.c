@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int ft_strlcat(char *dest, char *src, unsigned int size) // TODO
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size) // TODO
 {
 	unsigned int	c;
 	unsigned int	dest_size;
@@ -26,9 +26,8 @@ unsigned int ft_strlcat(char *dest, char *src, unsigned int size) // TODO
 		dest[dest_size + c] = src[c];
 		c++;
 	}
-    dest[dest_size + c] = '\0';
-
-    return dest;
+	dest[dest_size + c] = '\0';
+	return (dest);
 }
 
 #include <stdio.h>
