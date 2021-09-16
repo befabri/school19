@@ -6,14 +6,14 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 16:19:43 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/15 17:45:11 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/15 19:02:09 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strstr(char *str, char *to_find)
 {
-	unsigned int	c;
-	unsigned int	i;
+	int	c;
+	int	i;
 
 	c = 0;
 	if (to_find == '\0')
