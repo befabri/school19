@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
+/*   By: moi <moi@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 16:19:43 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/15 19:02:09 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/17 00:49:26 by moi              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strstr(char *str, char *to_find)
 	while (str[c] != '\0')
 	{
 		i = 0;
-		if (str[c] == to_find[i])
+		if (str[c] == to_find[0])
 		{
 			while (str[c] == to_find[i])
 			{
