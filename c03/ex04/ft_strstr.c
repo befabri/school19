@@ -6,7 +6,7 @@
 /*   By: moi <moi@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 16:19:43 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/17 00:49:26 by moi              ###   ########.fr       */
+/*   Updated: 2021/09/17 00:55:44 by moi              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strstr(char *str, char *to_find)
 	int	i;
 
 	c = 0;
-	if (to_find == '\0')
+	if (to_find[0] == '\0')
 		return (str);
 	while (str[c] != '\0')
 	{
