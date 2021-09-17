@@ -3,35 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moi <moi@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 16:19:43 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/17 00:55:44 by moi              ###   ########.fr       */
+/*   Updated: 2021/09/17 10:46:52 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strstr(char *str, char *to_find)
 {
 	int	c;
-	int	i;
+	int	d;
 
-	c = 0;
 	if (to_find[0] == '\0')
 		return (str);
+	c = 0;
 	while (str[c] != '\0')
 	{
-		i = 0;
+		d = 0;
 		if (str[c] == to_find[0])
 		{
-			while (str[c] == to_find[i])
+			while (str[c + d] == to_find[d])
 			{
-				c++;
-				i++;
-				if (to_find[i] == '\0')
-					return (&str[c - i]);
+				d++;
+				if (to_find[d] == '\0')
+					return (str + c);
 			}
 		}
-		 c = c - i + 1;
+		 c++;
 	}
 	return (0);
 }

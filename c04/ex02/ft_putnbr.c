@@ -1,27 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/13 10:53:27 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/17 10:49:02 by bfabri           ###   ########.fr       */
+/*   Created: 2021/09/17 17:57:39 by bfabri            #+#    #+#             */
+/*   Updated: 2021/09/17 18:01:26 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
-{
-	int	c;
+#include <unistd.h>
 
-	c = 0;
-	while (s1[c] != '\0' && s2[c] != '\0' && s1[c] == s2[c])
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putnbr(int nb)
+{
+	if (nb == -2147483648)
 	{
-		 c++;
+		ft_putchar('-');
+		ft_putchar('2');
+		nb = 147483648;
 	}
-	if (s1[c] == '\0' && s2[c] == '\0')
+	if (nb < 0)
 	{
-		return (0);
+		ft_putchar('-');
+		nb *= -1;
 	}
-	return (s1[c] - s2[c]);
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
+	else
+	{
+		ft_putchar(nb + '0');
+	}
 }

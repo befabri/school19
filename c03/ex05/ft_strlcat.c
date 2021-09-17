@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 17:40:46 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/16 15:22:57 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/17 10:08:34 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 	{
 		c++;
 	}
-	if (size == 0 || size > c)
+	if (size == 0)
 	{
-		return i;
+		return (i);
 	}
 	while (src[m] != '\0' && m < (size - c - 1))
 	{
@@ -37,7 +37,9 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 		m++;
 	}
 	dest[m] = '\0';
-	return (c+i);
+	if (size > c)
+		return (c + i);
+	return (size+i);
 }
 
 unsigned int	casse(char *dest, const char *src, unsigned int destsize)
@@ -80,8 +82,8 @@ int	main(void)
 	char	word3[] = "everyone";
 	char	word4[] = "everyone";
 
-	unsigned int	size_ft_strlcat = ft_strlcat(word1, word3, sizeof(word1)+10);
-	unsigned int	size_strlcat = casse(word2, word4, sizeof(word2)+10);
+	unsigned int	size_ft_strlcat = ft_strlcat(word1, word3, sizeof(word1)+8);
+	unsigned int	size_strlcat = casse(word2, word4, sizeof(word2)+8);
 	printf("ft_strlcat-> %d \n", size_ft_strlcat);
 	printf("strlcat-> %d \n", size_strlcat);
 	printf("ft_strlcat-> %s \n", word1);
