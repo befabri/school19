@@ -6,13 +6,52 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 14:01:32 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/18 18:46:48 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/19 01:00:48 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
 void	ft_putchar(char c);
+
+void	display_array(int tablo[6][6])
+{
+	int	r;
+	int	c;
+	
+	r = 0;
+	while (r < 6)
+	{
+		c = 0;
+		while (c < 6)
+		{
+			ft_putchar(tablo[r][c]+48);
+			if (c != 5)
+				ft_putchar(' ');
+			c++;
+		}
+		ft_putchar('\n');
+		r++;
+	}
+}
+
+void	init_array(int tablo[6][6])
+{
+	int	r;
+	int	c;
+
+	r = 0;
+	while (r < 6)
+	{
+		c = 0;
+		while (c < 6)
+		{
+			tablo[r][c] = 0;
+			c++;
+		}
+		r++;
+	}
+}
 
 int	*ft_split_arg(int *dest, char *src, unsigned int n)
 {
@@ -23,7 +62,6 @@ int	*ft_split_arg(int *dest, char *src, unsigned int n)
 	d = 0;
 	while (src[c] != '\0' && d < n)
 	{
-		//printf("%c\n", src[c]);
 		if (src[c] != ' ')
 		{
 			dest[d] = src[c] - '0';
@@ -33,127 +71,49 @@ int	*ft_split_arg(int *dest, char *src, unsigned int n)
 	}
 	return (dest);
 }
-void	boucle(int tablo[6][6])
+
+void	insert_row(int tab[6][6], int *list, int col, int offset_min, int offset_max)
 {
-	int y;
-	int x;
 	int	r;
+
+	r = 0;
+	while (offset_min <= offset_max)
+	{
+		tab[offset_min][col] = list[r];
+		r++;
+		offset_min++;
+	}
+}
+
+void	insert_col(int tab[6][6], int *list, int row, int offset_min, int offset_max)
+{
 	int	c;
 
-	x = 5;
-	y = 5;
-	r = 1;
-	while (r < y)
+	c = 0;
+	while (offset_min <= offset_max)
 	{
-		c = 1;
-		while (c < x)
-		{
-			if (r == 1)
-			{
-				if (tablo[r-1][c] == 4)
-					tablo[r][c] = 1;
-				if (tablo[r-1][c] == 1)
-					tablo[r][c] = 4;
-			}
-			if (c == 1)
-			{
-				if (tablo[r][c-1] == 4)
-					tablo[r][c] = 1;
-				if (tablo[r][c-1] == 1)
-					tablo[r][c] = 4;
-			}
-			if (c == 5)
-			{
-				if (tablo[r][c+1] == 4)
-					tablo[r][c] = 1;
-				if (tablo[r][c+1] == 1)
-					tablo[r][c] = 4;
-			}
-			//printf("%d ",tablo[r][c]);
-			c++;
-		}
-		//printf("\n");
-		r++;
+		tab[row][offset_min] = list[c];
+		c++;
+		offset_min++;
 	}
 }
 
-void	completer(int tablo[6][6])
+void	rush(char *str, int row, int column)
 {
-	int y;
-	int x;
-	int	r;
-	int	c;
+	int		tablo[row][column];
+	int		dst[16];
+	int		*res;
 
-	x = 5;
-	y = 5;
-	r = 1;
-	while (r < y)
-	{
-		c = 1;
-		while (c < x)
-		{
-			if (tablo[r][c] == 0)
-			{
-				if (c == 1)
-				{
-					if (tablo[r][4] == 4)
-					{
-						tablo[r][1] = 3;
-						tablo[r][2] = 2;
-						tablo[r][3] = 1;
-					}
-						
-				}
-				if (c == 4)
-				{
-					if (tablo[r][1] == 4)
-					{
-						tablo[r][4] = 3;
-						tablo[r][3] = 2;
-						tablo[r][2] = 1;
-					}
-				}
-			}
-			c++;
-		}
-		r++;
-	}
-}
+	init_array(tablo);
+	
+	res = ft_split_arg(dst, str+0*4*2, 4);
+	insert_col(tablo, res, 0, 1, 4);
+	res = ft_split_arg(dst, str+1*4*2, 4);
+	insert_col(tablo, res, 5, 1, 4);
+	res = ft_split_arg(dst, str+2*4*2, 4);
+	insert_row(tablo, res, 0, 1, 4);
+	res = ft_split_arg(dst, str+3*4*2, 4);
+	insert_row(tablo, res, 5, 1, 4);
 
-void	display_array(int tablo[6][6])
-{
-	int	i;
-	int	j;
-
-	for(i=0;i<6;i++)
-	{
-		for(j=0;j<6;j++)
-		{
-			printf("%d ",tablo[i][j]);
-		}
-		printf("\n");
-	}
-	printf("\n");
-}
-void	rush(void)
-{
-	int tablo[6][6] = {
-		{0,4,3,2,1,0},
-		{4,0,0,0,0,1},
-		{3,0,0,0,0,2},
-		{2,0,0,0,0,2},
-		{1,0,0,0,0,2},
-		{0,1,2,2,2,0}
-	};
 	display_array(tablo);
-	boucle(tablo);
-	display_array(tablo);
-	completer(tablo);
-	display_array(tablo);
-}
-
-int	main(void)
-{
-	rush();
-	return (0);
 }
