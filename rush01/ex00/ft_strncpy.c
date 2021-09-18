@@ -1,42 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/17 18:01:12 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/18 12:42:17 by bfabri           ###   ########.fr       */
+/*   Created: 2021/09/11 22:54:15 by bfabri            #+#    #+#             */
+/*   Updated: 2021/09/14 17:44:22 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_ispace(char c)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	if (c == '\f' || c == '\t' || c == ' ' ||
-			c == '\n' || c == '\r' || c == '\v')
-		return (1);
-	return (0);
-}
-
-int ft_atoi(char *str)
-{
-	int	c;
+	unsigned int	c;
 
 	c = 0;
-	while (str[c] != '\0' && ft_ispace(str[c]))
+	while (src[c] != '\0' && c < n)
 	{
+		dest[c] = src[c];
 		c++;
 	}
-	
-	return (0);
-}
-
-#include <stdio.h>
-
-int	main(void)
-{
-	char	test[] = "test message lol";
-	ft_atoi(test);
-	printf("\n");
-	return (0);
+	while (c < n)
+	{
+		dest[c] = '\0';
+		c++;
+	}
+	return (dest);
 }

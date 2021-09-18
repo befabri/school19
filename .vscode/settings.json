@@ -4,5 +4,6 @@
 	"files.associations": {
 		"stdio.h": "c",
 		"cstdio": "c"
-	}
+	},
+	"C_Cpp.errorSquiggles": "Disabled"
 }

@@ -1,42 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/17 18:01:12 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/18 12:42:17 by bfabri           ###   ########.fr       */
+/*   Created: 2021/09/18 13:54:06 by bfabri            #+#    #+#             */
+/*   Updated: 2021/09/18 14:49:07 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_ispace(char c)
-{
-	if (c == '\f' || c == '\t' || c == ' ' ||
-			c == '\n' || c == '\r' || c == '\v')
-		return (1);
-	return (0);
-}
-
-int ft_atoi(char *str)
-{
-	int	c;
-
-	c = 0;
-	while (str[c] != '\0' && ft_ispace(str[c]))
-	{
-		c++;
-	}
-	
-	return (0);
-}
-
 #include <stdio.h>
 
-int	main(void)
+void	rush(char *str);
+
+int		main(int argc, char *argv[])
 {
-	char	test[] = "test message lol";
-	ft_atoi(test);
-	printf("\n");
+	int i;
+
+	if (argc != 2)
+		return (0);
+	i = 1;
+	rush(argv[i]);
 	return (0);
 }
