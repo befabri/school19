@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 14:01:32 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/19 01:00:48 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/19 02:17:04 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ void	display_array(int tablo[6][6])
 {
 	int	r;
 	int	c;
-	
+
 	r = 0;
 	while (r < 6)
 	{
 		c = 0;
 		while (c < 6)
 		{
-			ft_putchar(tablo[r][c]+48);
+			ft_putchar(tablo[r][c] + 48);
 			if (c != 5)
 				ft_putchar(' ');
 			c++;
@@ -72,48 +72,62 @@ int	*ft_split_arg(int *dest, char *src, unsigned int n)
 	return (dest);
 }
 
-void	insert_row(int tab[6][6], int *list, int col, int offset_min, int offset_max)
+void	insert_row(int tab[6][6], int *list, int col)
 {
 	int	r;
 
 	r = 0;
-	while (offset_min <= offset_max)
+	while (r + 1 <= 4)
 	{
-		tab[offset_min][col] = list[r];
+		tab[r + 1][col] = list[r];
 		r++;
-		offset_min++;
 	}
 }
 
-void	insert_col(int tab[6][6], int *list, int row, int offset_min, int offset_max)
+void	insert_col(int tab[6][6], int *list, int row)
 {
 	int	c;
 
 	c = 0;
-	while (offset_min <= offset_max)
+	while (c + 1 <= 4)
 	{
-		tab[row][offset_min] = list[c];
+		tab[row][c + 1] = list[c];
 		c++;
-		offset_min++;
 	}
 }
 
-void	rush(char *str, int row, int column)
+// TODO :)
+void	check_corner(int tab[6][6])
 {
-	int		tablo[row][column];
+	int	list4[4] = {1, 2, 3, 4};
+
+	if (tab[0][1] == 4)
+	{
+		insert_row(tab, list4, 1);
+	}
+}
+
+void	rush(char *str)
+{
+	int		tablo[6][6];
 	int		dst[16];
 	int		*res;
 
 	init_array(tablo);
-	
-	res = ft_split_arg(dst, str+0*4*2, 4);
-	insert_col(tablo, res, 0, 1, 4);
-	res = ft_split_arg(dst, str+1*4*2, 4);
-	insert_col(tablo, res, 5, 1, 4);
-	res = ft_split_arg(dst, str+2*4*2, 4);
-	insert_row(tablo, res, 0, 1, 4);
-	res = ft_split_arg(dst, str+3*4*2, 4);
-	insert_row(tablo, res, 5, 1, 4);
 
+	res = ft_split_arg(dst, str + 0 * 4 * 2, 4);
+	insert_col(tablo, res, 0);
+	res = ft_split_arg(dst, str + 1 * 4 * 2, 4);
+	insert_col(tablo, res, 5);
+	res = ft_split_arg(dst, str + 2 * 4 * 2, 4);
+	insert_row(tablo, res, 0);
+	res = ft_split_arg(dst, str + 3 * 4 * 2, 4);
+	insert_row(tablo, res, 5);
+
+	display_array(tablo);
+	printf("\n");
+
+	check_corner(tablo);
+	printf("\n");
 	display_array(tablo);
 }
