@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_insert.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/18 14:02:45 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/19 19:46:12 by bfabri           ###   ########.fr       */
+/*   Created: 2021/09/19 20:08:42 by bfabri            #+#    #+#             */
+/*   Updated: 2021/09/19 20:08:46 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_rush.h"
-
-void	ft_putchar(char c)
+void	insert_row(int tab[6][6], int *list, int col)
 {
-	write(1, &c, 1);
+	int	r;
+
+	r = 0;
+	while (r + 1 <= 4)
+	{
+		tab[r + 1][col] = list[r];
+		r++;
+	}
 }
 
-void	ft_putstr(char *str)
+void	insert_col(int tab[6][6], int *list, int row)
 {
-	int	i;
+	int	c;
 
-	i = 0;
-	while (str[i] != '\0')
+	c = 0;
+	while (c + 1 <= 4)
 	{
-		ft_putchar(str[i]);
-		i++;
+		tab[row][c + 1] = list[c];
+		c++;
 	}
 }

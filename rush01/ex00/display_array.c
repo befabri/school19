@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   display_array.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/18 14:02:45 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/19 19:46:12 by bfabri           ###   ########.fr       */
+/*   Created: 2021/09/19 14:38:51 by bfabri            #+#    #+#             */
+/*   Updated: 2021/09/19 19:47:17 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_rush.h"
 
-void	ft_putchar(char c)
+void	display_array(int tablo[6][6])
 {
-	write(1, &c, 1);
-}
+	int	r;
+	int	c;
 
-void	ft_putstr(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
+	r = 0;
+	while (r < 6)
 	{
-		ft_putchar(str[i]);
-		i++;
+		c = 0;
+		while (c < 6)
+		{
+			ft_putchar(tablo[r][c] + 48);
+			if (c != 5)
+				ft_putchar(' ');
+			c++;
+		}
+		ft_putchar('\n');
+		r++;
 	}
 }

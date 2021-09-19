@@ -6,20 +6,21 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 13:54:06 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/19 02:16:40 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/19 21:28:30 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-void	rush(char *str);
+#include "ft_rush.h"
 
 int	main(int argc, char *argv[])
 {
 	int	i;
 
 	if (argc != 2)
+	{
+		ft_putstr("Error\n");
 		return (0);
+	}
 	i = 1;
 	rush(argv[i]);
 	return (0);

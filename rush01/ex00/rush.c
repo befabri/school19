@@ -6,128 +6,110 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 14:01:32 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/19 02:17:04 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/19 21:20:53 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "ft_rush.h"
 
-void	ft_putchar(char c);
-
-void	display_array(int tablo[6][6])
+void	check_side(int tab[6][6])
 {
-	int	r;
+	int	list4[4];
+	int	listr4[4];
 	int	c;
-
-	r = 0;
-	while (r < 6)
-	{
-		c = 0;
-		while (c < 6)
-		{
-			ft_putchar(tablo[r][c] + 48);
-			if (c != 5)
-				ft_putchar(' ');
-			c++;
-		}
-		ft_putchar('\n');
-		r++;
-	}
-}
-
-void	init_array(int tablo[6][6])
-{
-	int	r;
-	int	c;
-
-	r = 0;
-	while (r < 6)
-	{
-		c = 0;
-		while (c < 6)
-		{
-			tablo[r][c] = 0;
-			c++;
-		}
-		r++;
-	}
-}
-
-int	*ft_split_arg(int *dest, char *src, unsigned int n)
-{
-	unsigned int	c;
-	unsigned int	d;
 
 	c = 0;
-	d = 0;
-	while (src[c] != '\0' && d < n)
+	while (c < 4)
 	{
-		if (src[c] != ' ')
-		{
-			dest[d] = src[c] - '0';
-			d++;
-		}		
+		list4[c] = c + 1;
+		listr4[c] = 4 - c;
 		c++;
 	}
-	return (dest);
-}
-
-void	insert_row(int tab[6][6], int *list, int col)
-{
-	int	r;
-
-	r = 0;
-	while (r + 1 <= 4)
-	{
-		tab[r + 1][col] = list[r];
-		r++;
-	}
-}
-
-void	insert_col(int tab[6][6], int *list, int row)
-{
-	int	c;
-
 	c = 0;
 	while (c + 1 <= 4)
 	{
-		tab[row][c + 1] = list[c];
+		if (tab[0][c + 1] == 4)
+			insert_row(tab, list4, c + 1);
+		else if (tab[5][c + 1] == 4)
+			insert_row(tab, listr4, c + 1);
+		if (tab[c + 1][0] == 4)
+			insert_col(tab, list4, c + 1);
+		else if (tab[c + 1][5] == 4)
+			insert_col(tab, listr4, c + 1);
 		c++;
 	}
 }
 
-// TODO :)
-void	check_corner(int tab[6][6])
+int	loop_row(int tab[6][6])
 {
-	int	list4[4] = {1, 2, 3, 4};
+	int	r;
+	int	res1;
+	int	res2;
+	int	res3;
 
-	if (tab[0][1] == 4)
+	res1 = 0;
+	res2 = 0;
+	res3 = 0;
+	r = 1;
+	while (r <= 4)
 	{
-		insert_row(tab, list4, 1);
+		res1 = check_row(tab, r, tab[r][0]);
+		res2 = check_row_reverse(tab, r, tab[r][5]);
+		res3 = check_missing_number_row(tab, r);
+		if (res1 || res2 || res3)
+			return (1);
+		r++;
 	}
+	return (0);
+}
+
+int	loop_column(int tab[6][6])
+{
+	int	c;
+	int	res1;
+	int	res2;
+	int	res3;
+
+	res1 = 0;
+	res2 = 0;
+	res3 = 0;
+	c = 1;
+	while (c <= 4)
+	{
+		res1 = check_column(tab, c, tab[0][c]);
+		res2 = check_column_reverse(tab, c, tab[5][c]);
+		res3 = check_missing_number_col(tab, c);
+		if (res1 || res2 || res3)
+			return (1);
+		c++;
+	}
+	return (0);
 }
 
 void	rush(char *str)
 {
-	int		tablo[6][6];
-	int		dst[16];
-	int		*res;
+	int	tab[6][6];
+	int	res1;
+	int	res2;
 
-	init_array(tablo);
-
-	res = ft_split_arg(dst, str + 0 * 4 * 2, 4);
-	insert_col(tablo, res, 0);
-	res = ft_split_arg(dst, str + 1 * 4 * 2, 4);
-	insert_col(tablo, res, 5);
-	res = ft_split_arg(dst, str + 2 * 4 * 2, 4);
-	insert_row(tablo, res, 0);
-	res = ft_split_arg(dst, str + 3 * 4 * 2, 4);
-	insert_row(tablo, res, 5);
-
-	display_array(tablo);
-	printf("\n");
-
-	check_corner(tablo);
-	printf("\n");
-	display_array(tablo);
+	if (ft_strlen(str) != 31)
+	{
+		ft_putstr("Error\n");
+		return ;
+	}
+	init_array(tab);
+	if (!ft_split_arg_loop(str, tab))
+	{
+		ft_putstr("Error\n");
+		return ;
+	}
+	check_side(tab);
+	res1 = 1;
+	res2 = 1;
+	while (res1 || res2)
+	{
+		res1 = loop_row(tab);
+		res2 = loop_column(tab);
+	}
+	display_array(tab);
 }
