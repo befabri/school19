@@ -6,14 +6,14 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 17:40:46 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/20 11:12:17 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/20 11:16:10 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 unsigned int	ft_strlen(char *str)
 {
 	unsigned int	i;
-	
+
 	i = 0;
 	while (str[i] != '\0')
 	{

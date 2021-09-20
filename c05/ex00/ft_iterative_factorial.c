@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_array.c                                    :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/19 14:38:51 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/19 19:47:17 by bfabri           ###   ########.fr       */
+/*   Created: 2021/09/20 11:15:38 by bfabri            #+#    #+#             */
+/*   Updated: 2021/09/20 12:17:37 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_rush.h"
-
-void	display_array(int tablo[6][6])
+int	ft_iterative_factorial(int nb)
 {
-	int	r;
-	int	c;
+	int	fact;
 
-	r = 0;
-	while (r < 6)
+	fact = 1;
+	if (nb < 0 || nb > 12)
+		return (0);
+	while (nb > 1)
 	{
-		c = 0;
-		while (c < 6)
-		{
-			ft_putchar(tablo[r][c] + 48);
-			if (c != 5)
-				ft_putchar(' ');
-			c++;
-		}
-		ft_putchar('\n');
-		r++;
+		fact = fact * nb;
+		nb --;
 	}
+	return (fact);
 }
