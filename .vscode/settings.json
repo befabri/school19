@@ -3,7 +3,8 @@
 	"editor.insertSpaces": false,
 	"files.associations": {
 		"stdio.h": "c",
-		"cstdio": "c"
+		"cstdio": "c",
+		"string.h": "c"
 	},
 	"C_Cpp.errorSquiggles": "Disabled"
 }
