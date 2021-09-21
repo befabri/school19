@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_power.c                               :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/20 12:33:20 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/20 23:52:41 by bfabri           ###   ########.fr       */
+/*   Created: 2021/09/21 10:26:32 by bfabri            #+#    #+#             */
+/*   Updated: 2021/09/21 10:53:52 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_iterative_power(int nb, int power)
+int ft_fibonacci(int index)
 {
-	int	res;
-
-	res = nb;
-	if (power < 0 )
+	if (index == 0 )
 		return (0);
-	if (power == 0 )
+	else if (index == 1 )
 		return (1);	
-	while (power > 1)
-	{
-		res = res * nb;
-		power--;
-	}
-	return (res);
+	else if (index > 1)
+		return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
+	else
+		return (-1);
 }
-
