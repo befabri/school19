@@ -6,11 +6,11 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 14:18:55 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/21 15:32:28 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/21 15:58:04 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	t_is_prime(int nb)
+int	ft_is_prime(int nb)
 {
 	int	i;
 
