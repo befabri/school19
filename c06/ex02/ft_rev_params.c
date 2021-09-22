@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 23:51:47 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/22 00:28:57 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/22 10:34:33 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int argc, char *argv[])
 {
 	while (argc > 1)
 	{
-		ft_putstr(argv[argc-1]);
+		ft_putstr(argv[argc - 1]);
 		ft_putstr("\n");
 		argc--;
 	}

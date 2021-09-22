@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 23:55:15 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/22 00:28:15 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/22 10:34:23 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ int	ft_strcmp(char *s1, char *s2)
 void	ft_sort_int_tab(char **tab, int size)
 {
 	char	*tmp;
-	int	i;
-	int	swap;
+	int		i;
+	int		swap;
 
 	swap = 1;
 	while (swap == 1)
