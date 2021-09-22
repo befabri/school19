@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/21 23:40:28 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/22 11:27:43 by bfabri           ###   ########.fr       */
+/*   Created: 2021/09/22 13:38:58 by bfabri            #+#    #+#             */
+/*   Updated: 2021/09/22 13:53:29 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putchar(char c)
+int	*ft_range(int min, int max)
 {
-	write(1, &c, 1);
-}
-
-void	ft_putstr(char *str)
-{
+	int	*copy;
 	int	i;
 
+	copy = malloc(sizeof(int) * (max + 1 - min));
 	i = 0;
-	while (str[i] != '\0')
+	while (min <= max)
 	{
-		ft_putchar(str[i]);
+		copy[i] = min;
+		min++;
 		i++;
 	}
-}
-
-int	main(int argc, char *argv[])
-{
-	(void) argc;
-	ft_putstr(argv[0]);
-	return (0);
+	return (copy);
 }

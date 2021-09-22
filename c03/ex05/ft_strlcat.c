@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 17:40:46 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/20 11:16:10 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/22 13:55:25 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 	size_dest = ft_strlen(dest);
 	if (size == 0)
 		return (size_src);
-	while (src[c] != '\0' && c < (size - size_dest - 1))
+	while (src[c] != '\0' && size_dest + c < (size - 1))
 	{
 		dest[size_dest + c] = src[c];
 		c++;

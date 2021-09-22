@@ -1,37 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/21 23:40:28 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/22 11:27:43 by bfabri           ###   ########.fr       */
+/*   Created: 2021/09/22 12:41:57 by bfabri            #+#    #+#             */
+/*   Updated: 2021/09/22 13:51:45 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void	ft_putstr(char *str)
+int	ft_strlen(char *str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
-		ft_putchar(str[i]);
 		i++;
 	}
+	return (i);
 }
 
-int	main(int argc, char *argv[])
+char	*ft_strdup(char *src)
 {
-	(void) argc;
-	ft_putstr(argv[0]);
-	return (0);
+	char	*copy;
+	int		size;
+	int		i;
+
+	size = ft_strlen(src);
+	copy = malloc(sizeof((*src) * size));
+	i = 0;
+	while (i < size)
+	{
+		copy[i] = src[i];
+		i++;
+	}
+	return (copy);
 }
