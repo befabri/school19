@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 13:38:58 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/23 11:31:48 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/23 12:07:27 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	*ft_range(int min, int max)
 {
 	int	*copy;
 	int	i;
-	
+
 	if (min >= max)
 		return (0);
 	copy = (int *) malloc(sizeof(int) * (max - min));
