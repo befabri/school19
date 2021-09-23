@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 16:46:32 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/23 12:06:25 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/23 17:10:01 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		return (copy);
 	}
 	size_str = ft_strlen(sep) * (size - 1);
-	size_str = ft_strlen_array(strs, size);
+	size_str += ft_strlen_array(strs, size);
 	copy = (char *) malloc(sizeof(char) * (size_str + 1));
 	if (copy == NULL)
 		return (0);
