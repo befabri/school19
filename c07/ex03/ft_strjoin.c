@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 16:46:32 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/23 11:57:58 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/23 12:06:25 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 {
 	char	*copy;
 	int		i;
-	int		sep_size;
-	int		strs_size;
+	int		size_str;
 
 	if (size == 0)
 	{
@@ -72,9 +71,9 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		copy = 0;
 		return (copy);
 	}
-	sep_size = ft_strlen(sep) * (size - 1);
-	strs_size = ft_strlen_array(strs, size);
-	copy = (char *) malloc(sizeof(char) * (sep_size + strs_size + 1));
+	size_str = ft_strlen(sep) * (size - 1);
+	size_str = ft_strlen_array(strs, size);
+	copy = (char *) malloc(sizeof(char) * (size_str + 1));
 	if (copy == NULL)
 		return (0);
 	i = 0;
@@ -85,6 +84,6 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 			copy = ft_strcat(copy, sep);
 		i++;
 	}
-	copy[sep_size + strs_size] = '\0';
+	copy[size_str] = '\0';
 	return (copy);
 }
