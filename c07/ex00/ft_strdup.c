@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 12:41:57 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/22 13:51:45 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/23 11:31:32 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_strdup(char *src)
 	int		i;
 
 	size = ft_strlen(src);
-	copy = malloc(sizeof((*src) * size));
+	copy = (char *) malloc(sizeof((*src) * size));
 	i = 0;
 	while (i < size)
 	{

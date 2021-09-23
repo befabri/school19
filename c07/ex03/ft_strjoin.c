@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 16:46:32 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/23 11:22:16 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/23 11:57:58 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,14 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 
 	if (size == 0)
 	{
-		copy = (char *) malloc(1);
+		copy = (char *) malloc(sizeof(char));
+		copy = 0;
 		return (copy);
 	}
 	sep_size = ft_strlen(sep) * (size - 1);
 	strs_size = ft_strlen_array(strs, size);
 	copy = (char *) malloc(sizeof(char) * (sep_size + strs_size + 1));
-	if (!copy)
+	if (copy == NULL)
 		return (0);
 	i = 0;
 	while (i < size)

@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 15:24:42 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/22 16:10:08 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/09/23 11:37:29 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int ft_ultimate_range(int **range, int min, int max)
 		*range = 0;
 		return (0);
 	}
-	copy = malloc(sizeof(int) * (max - min));
+	copy = (int *) malloc(sizeof(int) * (max - min));
 	if (copy == NULL)
-		return (-1);
+		return (0);
 	i = 0;
 	while (min < max)
 	{
