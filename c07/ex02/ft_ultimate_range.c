@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/21 23:40:28 by bfabri            #+#    #+#             */
-/*   Updated: 2021/09/22 17:05:07 by bfabri           ###   ########.fr       */
+/*   Created: 2021/09/22 15:24:42 by bfabri            #+#    #+#             */
+/*   Updated: 2021/09/22 16:10:08 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putchar(char c)
+int ft_ultimate_range(int **range, int min, int max)
 {
-	write(1, &c, 1);
-}
-
-void	ft_putstr(char *str)
-{
+	int	*copy;
 	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
+	
+	if (min >= max)
 	{
-		ft_putchar(str[i]);
+		*range = 0;
+		return (0);
+	}
+	copy = malloc(sizeof(int) * (max - min));
+	if (copy == NULL)
+		return (-1);
+	i = 0;
+	while (min < max)
+	{
+		copy[i] = min;
+		min++;
 		i++;
 	}
-}
-
-int	main(int argc, char *argv[])
-{
-	(void) argc;
-	ft_putstr(argv[0]);
-	ft_putchar('\n');
-	return (0);
+	*range = copy;
+	return (i);
 }
