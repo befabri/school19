@@ -6,19 +6,19 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 15:49:46 by bfabri            #+#    #+#             */
-/*   Updated: 2021/10/01 15:52:14 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/10/01 16:04:25 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *	strnstr(const char *haystack, const char *needle, unsigned int len)
+char *	ft_strnstr(const char *haystack, const char *needle, unsigned int len)
 {
 	int	c;
 	int	d;
 
 	if (needle[0] == '\0')
-		return (needle);
+		return ((char *) haystack);
 	c = 0;
-	while (haystack[c] != '\0')
+	while (haystack[c] != '\0' && c < len)
 	{
 		d = 0;
 		if (haystack[c] == needle[0])
@@ -27,10 +27,26 @@ char *	strnstr(const char *haystack, const char *needle, unsigned int len)
 			{
 				d++;
 				if (needle[d] == '\0')
-					return (needle + c);
+					return ((char *) haystack + c);
 			}
 		}
 		 c++;
 	}
 	return (0);
+}
+
+#include <string.h>
+#include <stdio.h>
+
+int	main(void)
+{
+	const char *largestring = "Foo Bar Baz";
+	const char *smallstring = "Bar";
+	char *ptr;
+	
+	ptr = ft_strnstr(largestring, smallstring, 4);
+	printf("-> %s \n", ptr);
+
+	ptr = strnstr(largestring, smallstring, 4);
+	printf("-> %s \n", ptr);
 }
