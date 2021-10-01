@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/01 16:11:56 by bfabri            #+#    #+#             */
-/*   Updated: 2021/10/01 16:35:49 by bfabri           ###   ########.fr       */
+/*   Created: 2021/10/01 16:34:40 by bfabri            #+#    #+#             */
+/*   Updated: 2021/10/01 16:50:38 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,39 @@ int	ft_strlen(const char *s)
 	return (i);
 }
 
-char *ft_substr(char const *s, unsigned int start, unsigned int len) // TODO verifier si \0 ce passe quoi dois ton break.... verfier taille malloc
+char *ft_strtrim(char const *s1, char const *set)
 {
 	char	*copy;
-	unsigned int		i;
-	int		size_str;
+	int		i;
+	int		size_s1;
+	int		size_set;
+	int		d;
 
-	size_str = ft_strlen(s);
-	if (start < 0 || size_str < start)
+	size_s1 = ft_strlen(s1);
+	size_set = ft_strlen(set);
+	if (s1[0] == '\0' || set[0] == '\0')
 		return (0);
-	copy = (char *) malloc(sizeof(char) * (len + 1));
+	copy = (char *) malloc(sizeof(char) * (size_s1 + 1));
 	if (copy == NULL)
 		return (0);
 	i = 0;
 	*copy = 0;
-	while (len > 0)
+	while (i < size_s1)
 	{
-		copy[i] = s[start];
-		len--;
-		start++;
+		d = 0;
+		if (s1[i] == set[0])
+		{
+			while (s1[i + d] == set[d])
+			{
+				d++;
+				if (d == size_set)
+					find = 1;
+			}
+		}
+		copy[i] = s1[i];
 		i++;
 	}
-	copy[i] = '\0';
+	copy[size_s1 + 1] = '\0';
 	return (copy);
 }
 
