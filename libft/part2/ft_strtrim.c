@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 16:34:40 by bfabri            #+#    #+#             */
-/*   Updated: 2021/10/01 16:50:38 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/10/01 17:13:50 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,27 @@ int	ft_strlen(const char *s)
 	return (i);
 }
 
-char *ft_strtrim(char const *s1, char const *set)
+int	test(char const *s1, char const *set, int i, int size_set)
+{
+	int d;
+
+	d = 0;
+	while (s1[i + d] == set[d])
+	{
+		d++;
+		if (d == size_set)
+			return (d);
+		}
+	return (0);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*copy;
 	int		i;
 	int		size_s1;
 	int		size_set;
-	int		d;
+	int		c;
 
 	size_s1 = ft_strlen(s1);
 	size_set = ft_strlen(set);
@@ -41,22 +55,18 @@ char *ft_strtrim(char const *s1, char const *set)
 		return (0);
 	i = 0;
 	*copy = 0;
+	c = 0;
 	while (i < size_s1)
 	{
-		d = 0;
 		if (s1[i] == set[0])
 		{
-			while (s1[i + d] == set[d])
-			{
-				d++;
-				if (d == size_set)
-					find = 1;
-			}
+			i += test(s1, set, i, size_set);
 		}
-		copy[i] = s1[i];
+		copy[c] = s1[i];
 		i++;
+		c++;
 	}
-	copy[size_s1 + 1] = '\0';
+	copy[c] = '\0';
 	return (copy);
 }
 
@@ -64,8 +74,9 @@ char *ft_strtrim(char const *s1, char const *set)
 
 int	main(void)
 {
-	const char *test = "Phrase de test aled";
+	const char *src = "bonjour our si lourd voiloura";
+	const char *to_find = "our";
 
-	printf("-> %s \n", ft_substr(test, 15, 4));
+	printf("-> %s \n", ft_strtrim(src, to_find));
 	return (0);
 }
