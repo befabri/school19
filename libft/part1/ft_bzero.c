@@ -6,20 +6,22 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 13:49:33 by bfabri            #+#    #+#             */
-/*   Updated: 2021/10/01 14:28:04 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/10/03 19:56:40 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_bzero(void *s, int n)
 {
 	int c;
-	(char *) s;
+	char *s_tmp;
+
+	s_tmp = (char *) s;
 	if (n < 1 )
 		return ;
 	c = 0;
-	while (s[c] != '\0' && c < n)
+	while (s_tmp[c] != '\0' && c < n)
 	{
-		s[c] = '\0';
+		s_tmp[c] = '\0';
 		c++;
 	}
 }
