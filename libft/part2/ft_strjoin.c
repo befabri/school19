@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 16:19:48 by bfabri            #+#    #+#             */
-/*   Updated: 2021/10/01 16:19:49 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/10/03 19:53:22 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,19 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	}
 	copy[size_str] = '\0';
 	return (copy);
+}
+
+#include <stdio.h>
+int main ()
+{    
+    char *retour;
+    char *strs[3];
+    strs[0] = "ab";
+    strs[1] = "cd";
+    strs[2] = "de";
+
+    retour = ft_strjoin(3, strs, "");
+    printf("strcat = %s\n",retour);
+	free(retour);
+    return(0);
 }
