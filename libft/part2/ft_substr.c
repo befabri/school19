@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 16:11:56 by bfabri            #+#    #+#             */
-/*   Updated: 2021/10/03 19:53:43 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/10/03 20:35:07 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_strlen(const char *s)
 	return (i);
 }
 
-char *ft_substr(char const *s, unsigned int start, unsigned int len) // TODO verifier si \0 ce passe quoi dois ton break.... verfier taille malloc
+char	*ft_substr(char const *s, unsigned int start, unsigned int len) // TODO verifier si \0 ce passe quoi dois ton break.... verfier taille malloc
 {
 	char	*copy;
 	unsigned int		i;
@@ -53,7 +53,7 @@ char *ft_substr(char const *s, unsigned int start, unsigned int len) // TODO ver
 
 int	main(void)
 {
-	const char *test = "Phrase de test aled";
+	const char	*test = "Phrase de test aled";
 
 	printf("-> %s \n", ft_substr(test, 15, 4));
 	return (0);

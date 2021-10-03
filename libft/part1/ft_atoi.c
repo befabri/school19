@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 14:58:12 by bfabri            #+#    #+#             */
-/*   Updated: 2021/10/03 19:52:23 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/10/03 20:52:20 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,14 @@ int	ft_atoi(const char *str)
 	return (nb * signe);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int	main(void)
-{
-	char	test[] = "   +-   ----++++++++++++++++++++++1234ab567";
-	int nbr = ft_atoi(test);
-	printf("%d\n", nbr);
-	printf("\n");
-	return (0);
-}
+// int	main(void)
+// {
+// 	char	test[] = "   +-   ----++++++++++++++++++++++1234ab567";
+// 	int	nbr = ft_atoi(test);
+
+// 	printf("%d\n", nbr);
+// 	printf("\n");
+// 	return (0);
+// }

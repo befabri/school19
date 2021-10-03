@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 16:19:48 by bfabri            #+#    #+#             */
-/*   Updated: 2021/10/03 19:53:22 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/10/03 20:38:40 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,30 +76,30 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	copy = (char *) malloc(sizeof(char) * (size_str + 1));
 	if (copy == NULL)
 		return (0);
-	i = 0;
+	i = -1;
 	*copy = 0;
-	while (i < size)
+	while (++i < size)
 	{
 		ft_strcat(copy, strs[i]);
 		if (i + 1 != size)
 			ft_strcat(copy, sep);
-		i++;
 	}
 	copy[size_str] = '\0';
 	return (copy);
 }
 
 #include <stdio.h>
-int main ()
-{    
-    char *retour;
-    char *strs[3];
-    strs[0] = "ab";
-    strs[1] = "cd";
-    strs[2] = "de";
 
-    retour = ft_strjoin(3, strs, "");
-    printf("strcat = %s\n",retour);
+int	main(void)
+{
+	char	*retour;
+	char	*strs[3];
+
+	strs[0] = "ab";
+	strs[1] = "cd";
+	strs[2] = "de";
+	retour = ft_strjoin(3, strs, " ");
+	printf("strcat = %s\n", retour);
 	free(retour);
-    return(0);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 17:19:12 by bfabri            #+#    #+#             */
-/*   Updated: 2021/10/03 20:14:10 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/10/03 20:53:10 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,12 @@ char	*ft_strdup(char *src)
 	return (copy);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int	main(void)
-{
-	char	test[] = "ceci est un message";
-	
-	printf("%s \n", ft_strdup(test));
-	return (0);
-}
+// int	main(void)
+// {
+// 	char	test[] = "ceci est un message";
+
+// 	printf("%s \n", ft_strdup(test));
+// 	return (0);
+// }

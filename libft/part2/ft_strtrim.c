@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 16:34:40 by bfabri            #+#    #+#             */
-/*   Updated: 2021/10/01 17:13:50 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/10/03 20:34:35 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_strlen(const char *s)
 
 int	test(char const *s1, char const *set, int i, int size_set)
 {
-	int d;
+	int	d;
 
 	d = 0;
 	while (s1[i + d] == set[d])
@@ -34,7 +34,7 @@ int	test(char const *s1, char const *set, int i, int size_set)
 		d++;
 		if (d == size_set)
 			return (d);
-		}
+	}
 	return (0);
 }
 
@@ -59,9 +59,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (i < size_s1)
 	{
 		if (s1[i] == set[0])
-		{
 			i += test(s1, set, i, size_set);
-		}
 		copy[c] = s1[i];
 		i++;
 		c++;
@@ -74,8 +72,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 int	main(void)
 {
-	const char *src = "bonjour our si lourd voiloura";
-	const char *to_find = "our";
+	const char	*src = "bonjour our si lourd voiloura";
+	const char	*to_find = "our";
 
 	printf("-> %s \n", ft_strtrim(src, to_find));
 	return (0);
