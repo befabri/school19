@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 14:36:54 by bfabri            #+#    #+#             */
-/*   Updated: 2021/10/08 15:15:54 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/10/11 10:44:47 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,15 @@ Le tableau doit être terminé par NULL.
 */
 char **ft_split(char const *s, char c)
 {
-	char	*copy;
+	char	**copy;
 	int		i;
 	int		nb;
 	int		j;
 	char	*copy_tmp;
 	if (!c)
-	{
-		copy = malloc(sizeof(char));
-		*copy = 0;
-		return (copy);
-	}
+		return (0);
 	nb = ft_countchar(s, c);
-	copy = (char *) malloc(sizeof(char) * nb);
+	copy = (char **) malloc(sizeof(char) * nb);
 	if (copy == NULL)
 		return (0);
 	i = 0;
