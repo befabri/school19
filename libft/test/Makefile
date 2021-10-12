@@ -6,11 +6,11 @@
 #    By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/08 17:53:33 by frdescam          #+#    #+#              #
-#    Updated: 2021/10/11 21:39:40 by bfabri           ###   ########.fr        #
+#    Updated: 2021/10/12 11:31:21 by bfabri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= test_libft
+NAME		= run_tests
 
 SRCS		= \
 		test_ft_isalpha.c \
@@ -56,7 +56,7 @@ LIBFT		=	../src/libft.a
 all			:	$(NAME)
 
 $(NAME)		:	$(OBJS) $(LIBFT)
-				$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIBFT) -lbsd
+				$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIBFT)
 
 $(LIBFT)	:
 				make -C ../src
