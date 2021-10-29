@@ -6,13 +6,13 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 16:11:56 by bfabri            #+#    #+#             */
-/*   Updated: 2021/10/11 17:03:29 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/10/29 17:08:43 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len) // TODO verifier si \0 ce passe quoi dois ton break.... verfier taille malloc
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*copy;
 	size_t	i;

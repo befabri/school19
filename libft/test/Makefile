@@ -6,7 +6,7 @@
 #    By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/08 17:53:33 by frdescam          #+#    #+#              #
-#    Updated: 2021/10/12 11:31:21 by bfabri           ###   ########.fr        #
+#    Updated: 2021/10/29 16:05:36 by bfabri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ LIBFT		=	../src/libft.a
 all			:	$(NAME)
 
 $(NAME)		:	$(OBJS) $(LIBFT)
-				$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIBFT)
+				$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIBFT) -lbsd
 
 $(LIBFT)	:
 				make -C ../src

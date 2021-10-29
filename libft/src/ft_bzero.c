@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 13:49:33 by bfabri            #+#    #+#             */
-/*   Updated: 2021/10/11 17:15:53 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/10/29 16:25:22 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	ft_bzero(void *s, size_t n)
 	size_t	c;
 	char	*s_tmp;
 
-	s_tmp = (char *) s;
 	if (n < 1 )
 		return ;
+	s_tmp = (char *) s;
 	c = 0;
-	while (s_tmp[c] != '\0' && c < n)
+	while (c < n)
 	{
 		s_tmp[c] = '\0';
 		c++;

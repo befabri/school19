@@ -6,13 +6,13 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 17:19:12 by bfabri            #+#    #+#             */
-/*   Updated: 2021/10/11 17:04:22 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/10/29 17:06:11 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *src) // CHECK CONST
+char	*ft_strdup(const char *src)
 {
 	char	*copy;
 	size_t	size;
