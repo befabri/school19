@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 14:57:00 by bfabri            #+#    #+#             */
-/*   Updated: 2021/10/11 17:03:40 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/11/03 04:27:13 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,6 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	while (s1[c] != '\0' && s2[c] != '\0' && s1[c] == s2[c] && c < n - 1)
 	{
 		 c++;
-	}
-	if (s1[c] == '\0' && s2[c] == '\0')
-	{
-		return (0);
 	}
 	return (s1[c] - s2[c]);
 }

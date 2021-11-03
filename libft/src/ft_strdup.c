@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 17:19:12 by bfabri            #+#    #+#             */
-/*   Updated: 2021/10/29 17:06:11 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/11/03 03:59:20 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ char	*ft_strdup(const char *src)
 	if (copy == NULL)
 		return (0);
 	i = 0;
+	*copy = 0;
 	while (i < size)
 	{
 		copy[i] = src[i];
