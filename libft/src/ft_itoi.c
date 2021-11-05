@@ -1,38 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_itoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/01 16:11:56 by bfabri            #+#    #+#             */
-/*   Updated: 2021/11/05 04:09:16 by bfabri           ###   ########.fr       */
+/*   Created: 2021/11/05 04:14:19 by bfabri            #+#    #+#             */
+/*   Updated: 2021/11/05 04:44:08 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "stdio.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+static int	ft_nbrlen(int nb)
 {
-	char	*copy;
-	size_t	size_str;
+	int		i;
 
-	if (s == NULL)
-		return (0);
-	if (ft_strlen(s) < start)
+	i = 0;
+	if (nb == 0)
+		return (1);
+	while (nb != 0)
 	{
-		copy = (char *) malloc(sizeof(char) * 1);
-		if (copy == NULL)
-			return (0);
-		*copy = 0;
-		return (copy);
+		nb = nb / 10;
+		i++;
 	}
-	size_str = ft_strlen(s + start);
-	if (size_str < len)
-		len = size_str;
-	copy = (char *) malloc(sizeof(char) * (len + 1));
+	return (i);
+}
+
+char *ft_itoa(int n)
+{
+	int		len;
+	char	*copy;
+
+	printf("|%d ", n);
+	len = ft_nbrlen(n);
+	printf(">%d< ", len);
+	copy = (char *) malloc(sizeof(char) * len + 1);
 	if (copy == NULL)
 		return (0);
-	ft_strlcpy(copy, s + start, len + 1);
+	*copy = 0;
+	copy[len] = '\0';
+	len--;
+	while (len >= 0)
+	{
+		copy[len] = '0' + n % 10;
+		n = n / 10;
+		len--;
+	}
+	if (n < 0)
+		copy[0] = '-';
+	printf("%s|", copy);
 	return (copy);
 }
