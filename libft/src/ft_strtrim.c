@@ -6,52 +6,61 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 16:34:40 by bfabri            #+#    #+#             */
-/*   Updated: 2021/10/11 21:22:44 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/11/05 22:20:53 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	test(char const *s1, char const *set, int i, int size_set)
+static int	ft_getstart(const char *s1, const char *set)
 {
-	int	d;
+	size_t	len;
+	size_t	i;
 
-	d = 0;
-	while (s1[i + d] == set[d])
+	len = ft_strlen(s1);
+	i = 0;
+	while (i < len)
 	{
-		d++;
-		if (d == size_set)
-			return (d);
+		if (ft_strchr(set, s1[i]) == 0)
+			break ;
+		i++;
 	}
-	return (0);
+	return (i);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+static int	ft_getend(const char *s1, const char *set)
 {
-	char	*copy;
+	size_t	len;
 	size_t	i;
-	size_t	size_s1;
-	size_t	size_set;
-	int		c;
 
-	size_s1 = ft_strlen(s1);
-	size_set = ft_strlen(set);
-	if (s1[0] == '\0' || set[0] == '\0')
-		return (0);
-	copy = (char *) malloc(sizeof(char) * (size_s1 + 1));
-	if (copy == NULL)
-		return (0);
+	len = ft_strlen(s1);
 	i = 0;
-	*copy = 0;
-	c = 0;
-	while (i < size_s1)
+	while (i < len)
 	{
-		if (s1[i] == set[0])
-			i += test(s1, set, i, size_set);
-		copy[c] = s1[i];
+		if (ft_strchr(set, s1[len - i - 1]) == 0)
+			break ;
 		i++;
-		c++;
 	}
-	copy[c] = '\0';
-	return (copy);
+	return (len - i);
+}
+
+char		*ft_strtrim(char const *s1, char const *set)
+{
+	int		start;
+	int		end;
+	char	*newstr;
+
+	if (s1 == NULL)
+		return (NULL);
+	if (set == NULL)
+		return (ft_strdup(s1));
+	start = ft_getstart(s1, set);
+	end = ft_getend(s1, set);
+	if (start >= end)
+		return (ft_strdup(""));
+	newstr = (char *)malloc(sizeof(char) * (end - start + 1));
+	if (newstr == NULL)
+		return (NULL);
+	ft_strlcpy(newstr, s1 + start, end - start + 1);
+	return (newstr);
 }
