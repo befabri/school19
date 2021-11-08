@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 14:57:00 by bfabri            #+#    #+#             */
-/*   Updated: 2021/11/03 04:27:13 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/11/08 02:46:16 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	{
 		 c++;
 	}
-	return (s1[c] - s2[c]);
+	return (((unsigned char *)s1)[c] - ((unsigned char *)s2)[c]);
 }
