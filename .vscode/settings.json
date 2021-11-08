@@ -13,7 +13,11 @@
 		"string_view": "c",
 		"__bit_reference": "c",
 		"__string": "c",
-		"algorithm": "c"
+		"algorithm": "c",
+		"array": "c",
+		"initializer_list": "c",
+		"utility": "c",
+		"sstream": "c"
 	},
 	"C_Cpp.errorSquiggles": "Disabled"
 }

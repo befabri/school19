@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 10:52:33 by bfabri            #+#    #+#             */
-/*   Updated: 2021/10/11 21:10:30 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/11/07 21:13:28 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ int		test_ft_strtrim();
 int		test_ft_substr();
 int		test_ft_tolower();
 int		test_ft_toupper();
+int		test_ft_itoa();
 
 #endif

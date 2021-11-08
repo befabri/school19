@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 10:52:33 by bfabri            #+#    #+#             */
-/*   Updated: 2021/11/05 04:25:04 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/11/07 21:15:20 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
-char *ft_itoa(int n);
+char				*ft_itoa(int n);
 
 #endif

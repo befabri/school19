@@ -1,55 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoi.c                                          :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 04:14:19 by bfabri            #+#    #+#             */
-/*   Updated: 2021/11/05 04:44:08 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/11/08 02:07:43 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "stdio.h"
 
-static int	ft_nbrlen(int nb)
+static int	ft_nb_len(long nb)
 {
-	int		i;
+	long	i;
 
 	i = 0;
-	if (nb == 0)
-		return (1);
-	while (nb != 0)
+	if (nb <= 0)
 	{
-		nb = nb / 10;
+		nb *= -1;
+		i++;
+	}
+	while (nb > 0)
+	{
+		nb /= 10;
 		i++;
 	}
 	return (i);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-	int		len;
+	int		size;
 	char	*copy;
+	long	nb;
 
-	printf("|%d ", n);
-	len = ft_nbrlen(n);
-	printf(">%d< ", len);
-	copy = (char *) malloc(sizeof(char) * len + 1);
+	nb = (long) n;
+	size = ft_nb_len(nb);
+	copy = (char *) malloc(sizeof(char) * size + 1);
 	if (copy == NULL)
 		return (0);
-	*copy = 0;
-	copy[len] = '\0';
-	len--;
-	while (len >= 0)
+	if (nb == 0)
+		copy[size - 1] = '0' + nb % 10;
+	if (nb < 0)
 	{
-		copy[len] = '0' + n % 10;
-		n = n / 10;
-		len--;
-	}
-	if (n < 0)
 		copy[0] = '-';
-	printf("%s|", copy);
+		nb *= -1;
+	}
+	copy[size] = '\0';
+	while (nb > 0)
+	{
+		copy[size - 1] = '0' + nb % 10;
+		nb /= 10;
+		size--;
+	}
 	return (copy);
 }
