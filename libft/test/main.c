@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 17:30:46 by bfabri            #+#    #+#             */
-/*   Updated: 2021/11/07 21:17:27 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/11/08 13:57:09 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(void)
 {
-	test_ft_itoa();
+	test_ft_split();
 	printf("\n");
 	return (0);
 }

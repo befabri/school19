@@ -6,63 +6,70 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 14:36:54 by bfabri            #+#    #+#             */
-/*   Updated: 2021/11/08 02:24:47 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/11/09 15:22:00 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
-static int	ft_countchar(const char *s, char c)
+static int	count_str(const char *s, char c)
 {
-	int	i;
-	int	j;
+	int		count;
+	int		i;
 
 	i = 0;
-	j = 0;
+	count = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i] == c)
-			j++;
-		i++;
+		while (s[i] == c)
+			i++;
+		if (s[i] != c && s[i])
+			count++;
+		while (s[i] != c && s[i])
+			i++;
 	}
-	return (j);
+	return (count);
 }
 
-/*
-Alloue (avec malloc(3)) et retourne un tableau
-de chaines de caracteres obtenu en séparant ’s’ à
-l’aide du caractère ’c’, utilisé comme délimiteur.
-Le tableau doit être terminé par NULL.
-*/
-char	**ft_split(char const *s, char c)
+static void	cut_str(char **copy, size_t size, char const *s, char c)
 {
-	char	**copy;
-	int		i;
-	int		nb;
-	int		j;
-	char	*copy_tmp;
+	size_t	i;
+	size_t	nb;
+	int		start;
 
-	if (!c)
-		return (0);
-	nb = ft_countchar(s, c);
-	copy = (char **) malloc(sizeof(char) * nb);
-	if (copy == NULL)
-		return (0);
 	i = 0;
-	*copy = 0;
-	while (s[i] != '\0')
+	nb = 0;
+	start = -1;
+	while (i <= size)
 	{
-		if (s[i] == c)
+		if (start == -1 && s[i] != c)
+			start = i;
+		if (start != -1 && (i == size - 1 || s[i] == c))
 		{
-			j = i;
-			copy_tmp = (char *) malloc(sizeof(char) * (j + 1));
-			if (copy_tmp == NULL)
-				return (0);
+			if (i == size - 1 && s[i] != c)
+				i++;
+			copy[nb] = ft_substr(s, start, i - start);
 			nb++;
-			j = 0;
+			start = -1;
 		}
 		i++;
 	}
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**copy;
+	size_t	nb;
+	size_t	size;
+
+	if (!s)
+		return (0);
+	nb = count_str(s, c);
+	size = ft_strlen(s);
+	copy = (char **) malloc(sizeof(char *) * (nb + 1));
+	if (copy == NULL)
+		return (0);
+	cut_str(copy, size, s, c);
+	copy[nb] = '\0';
 	return (copy);
 }
