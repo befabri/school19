@@ -6,7 +6,7 @@
 #    By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/08 17:53:33 by frdescam          #+#    #+#              #
-#    Updated: 2021/11/07 21:18:55 by bfabri           ###   ########.fr        #
+#    Updated: 2021/11/09 17:15:35 by bfabri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,12 @@ SRCS		= \
 		test_ft_strtrim.c \
 		test_ft_split.c \
 		test_ft_itoa.c \
+		test_ft_strmapi.c \
+		test_ft_striteri.c \
+		test_ft_putchar_fd.c \
+		test_ft_putstr_fd.c \
+		test_ft_putendl_fd.c \
+		test_ft_putnbr_fd.c \
 		main.c
 
 OBJS		= ${SRCS:.c=.o}

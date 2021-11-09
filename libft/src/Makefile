@@ -6,7 +6,7 @@
 #    By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/11 14:36:39 by bfabri            #+#    #+#              #
-#    Updated: 2021/11/07 21:16:56 by bfabri           ###   ########.fr        #
+#    Updated: 2021/11/09 15:43:50 by bfabri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,14 @@ SRCS 	= \
 		ft_strjoin.c \
 		ft_strtrim.c \
 		ft_split.c \
-		ft_itoa.c
+		ft_itoa.c \
+		ft_strmapi.c \
+		ft_striteri.c \
+		ft_putchar_fd.c \
+		ft_putstr_fd.c \
+		ft_putendl_fd.c \
+		ft_putnbr_fd.c
+		
 
 OBJS 	= ${SRCS:.c=.o}
 

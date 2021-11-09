@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 10:52:33 by bfabri            #+#    #+#             */
-/*   Updated: 2021/11/07 21:13:28 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/11/09 17:16:43 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,11 @@ int		test_ft_substr();
 int		test_ft_tolower();
 int		test_ft_toupper();
 int		test_ft_itoa();
+int		test_ft_strmapi();
+int		test_ft_striteri();
+int		test_ft_putchar_fd();
+int		test_ft_putstr_fd();
+int		test_ft_putendl_fd();
+int		test_ft_putnbr_fd();
 
 #endif

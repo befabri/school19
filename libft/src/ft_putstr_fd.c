@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 17:30:46 by bfabri            #+#    #+#             */
-/*   Updated: 2021/11/09 17:19:25 by bfabri           ###   ########.fr       */
+/*   Created: 2021/11/09 15:26:00 by bfabri            #+#    #+#             */
+/*   Updated: 2021/11/09 15:40:47 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libtest.h"
+#include "libft.h"
 
-int	main(void)
+void	ft_putstr_fd(char *s, int fd)
 {
-	test_ft_strtrim();
-	printf("\n");
-	return (0);
+	if (!s)
+		return ;
+	write(fd, s, ft_strlen(s));
 }

@@ -6,61 +6,49 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 16:34:40 by bfabri            #+#    #+#             */
-/*   Updated: 2021/11/08 02:03:57 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/11/09 17:42:56 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_getstart(const char *s1, const char *set)
+static int	is_set(char c, char const *set)
 {
-	size_t	len;
-	size_t	i;
+	int		i;
 
-	len = ft_strlen(s1);
 	i = 0;
-	while (i < len)
+	while (set[i] != '\0')
 	{
-		if (ft_strchr(set, s1[i]) == 0)
-			break ;
+		if (set[i] == c)
+			return (1);
 		i++;
 	}
-	return (i);
+	return (0);
 }
 
-static int	ft_getend(const char *s1, const char *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	len;
+	char	*copy;
 	size_t	i;
+	size_t	c;
 
-	len = ft_strlen(s1);
 	i = 0;
-	while (i < len)
+	c = 0;
+	while (is_set(s1[c], set))
 	{
-		if (ft_strchr(set, s1[len - i - 1]) == 0)
-			break ;
-		i++;
+		c++;
 	}
-	return (len - i);
-}
-
-char		*ft_strtrim(char const *s1, char const *set)
-{
-	int		start;
-	int		end;
-	char	*newstr;
-
-	if (s1 == NULL)
-		return (NULL);
-	if (set == NULL)
-		return (ft_strdup(s1));
-	start = ft_getstart(s1, set);
-	end = ft_getend(s1, set);
-	if (start >= end)
-		return (ft_strdup(""));
-	newstr = (char *)malloc(sizeof(char) * (end - start + 1));
-	if (newstr == NULL)
-		return (NULL);
-	ft_strlcpy(newstr, s1 + start, end - start + 1);
-	return (newstr);
+	if (c == ft_strlen(s1))
+	{
+		copy = (char *) malloc(sizeof(char) * 1);
+		copy[0] = 0;
+		return (copy);
+	}
+	i = ft_strlen(s1) - 1;
+	while (is_set(s1[i], set))
+	{
+		i--;
+	}
+	copy = ft_substr(s1, c, i - c + 1);
+	return (copy);
 }

@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 16:34:40 by bfabri            #+#    #+#             */
-/*   Updated: 2021/10/12 11:40:04 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/11/09 17:24:10 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 int	test_ft_strtrim(void)
 {
-	const char	*src = "bonjour our si lourd voiloura";
-	const char	*to_find = "our";
+	const char	*src = "- -Melange-le - son- doucement- -";
+	const char	*to_find = "--";
+	char *test;
 
 	printf(" %s \n to_find: %s\n", src, to_find);
-	printf("-> %s \n", ft_strtrim(src, to_find));
+	test = ft_strtrim(src, to_find);
+	printf("-> %s \n", test);
 	return (0);
 }
