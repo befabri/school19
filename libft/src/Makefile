@@ -6,7 +6,7 @@
 #    By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/11 14:36:39 by bfabri            #+#    #+#              #
-#    Updated: 2021/11/12 03:03:04 by bfabri           ###   ########.fr        #
+#    Updated: 2021/11/12 03:08:20 by bfabri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,7 @@ OBJS_B	=	$(BONUS:.c=.o)
 CC		=	cc
 RM		=	rm -f
 
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -fsanitize=address
 
 .c.o:		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 

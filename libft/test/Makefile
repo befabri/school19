@@ -6,7 +6,7 @@
 #    By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/08 17:53:33 by frdescam          #+#    #+#              #
-#    Updated: 2021/11/09 17:15:35 by bfabri           ###   ########.fr        #
+#    Updated: 2021/11/12 03:08:41 by bfabri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ RM			= rm -f
 
 LIBFT_FLAGS	= -Llibft -lft
 
-CFLAGS		= -Wall -Wextra
+CFLAGS	=	-Wall -Wextra -fsanitize=address
 
 LIBFT		=	../src/libft.a
 
