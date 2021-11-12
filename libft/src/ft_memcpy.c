@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 17:28:32 by bfabri            #+#    #+#             */
-/*   Updated: 2021/10/11 17:03:08 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/11/12 02:01:52 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char			*src_tmp;
-	char			*dst_tmp;
-	unsigned int	i;
+	unsigned char	*src_tmp;
+	unsigned char	*dst_tmp;
+	size_t			i;
 
 	if (!dst && !src)
 		return (0);
-	src_tmp = (char *) src;
-	dst_tmp = (char *) dst;
+	src_tmp = (unsigned char *) src;
+	dst_tmp = (unsigned char *) dst;
 	i = 0;
 	while (i < n)
 	{

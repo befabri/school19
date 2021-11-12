@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 15:41:35 by bfabri            #+#    #+#             */
-/*   Updated: 2021/10/29 16:56:37 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/11/12 01:59:23 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*src_tmp;
-	char	*dst_tmp;
+	unsigned char	*src_tmp;
+	unsigned char	*dst_tmp;
 
 	if (!dst && !src)
 		return (0);
-	src_tmp = (char *) src;
-	dst_tmp = (char *) dst;
+	src_tmp = (unsigned char *) src;
+	dst_tmp = (unsigned char *) dst;
 	if (dst > src)
 	{
 		while (0 < len)

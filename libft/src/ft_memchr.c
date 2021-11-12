@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 15:44:43 by bfabri            #+#    #+#             */
-/*   Updated: 2021/10/29 16:34:35 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/11/12 02:02:02 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*s_tmp;
-	unsigned int	i;
+	size_t			i;
 
 	s_tmp = (unsigned char *) s;
 	i = 0;

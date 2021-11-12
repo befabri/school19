@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 10:52:33 by bfabri            #+#    #+#             */
-/*   Updated: 2021/11/09 18:35:12 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/11/12 02:19:08 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 # include <string.h>
 # include <unistd.h>
 
-typedef struct	s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}				t_list;
+}	t_list;
 
 int			ft_atoi(const char *str);
 void		ft_bzero(void *s, size_t n);

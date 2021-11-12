@@ -6,34 +6,45 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 14:58:12 by bfabri            #+#    #+#             */
-/*   Updated: 2021/10/11 21:21:33 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/11/12 02:13:59 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static int	is_space(char c)
+{
+	if (c == '\f' || c == '\t' || c == ' '
+		|| c == '\n' || c == '\r' || c == '\v')
+		return (1);
+	return (0);
+}
+
 int	ft_atoi(const char *str)
 {
-	int	c;
-	int	nb;
-	int	signe;
+	size_t	c;
+	long	nb;
+	long	sign;
 
-	nb = 0;
 	c = 0;
-	signe = 1;
-	while (str[c] == '\f' || str[c] == '\t' || str[c] == '\n'
-		|| str[c] == '\r' || str[c] == '\v' || str[c] == ' ')
+	nb = 0;
+	sign = 1;
+	while ((str[c] != '\0') && is_space(str[c]) == 1)
 		c++;
 	if (str[c] == '+' || str[c] == '-')
 	{
 		if (str[c] == '-')
-			signe *= -1;
+			sign *= -1;
 		c++;
 	}
 	while (str[c] >= '0' && str[c] <= '9')
 	{
 		nb = nb * 10 + (str[c] - '0');
+		if (nb > 2147483647 && sign == 1)
+			return (-1);
+		if (nb > 2147483648 && sign == -1)
+			return (0);
 		c++;
 	}
-	return (nb * signe);
+	return (nb * sign);
 }
