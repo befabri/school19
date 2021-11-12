@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 14:36:54 by bfabri            #+#    #+#             */
-/*   Updated: 2021/11/09 15:22:00 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/11/12 03:04:02 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,21 @@ static int	count_str(const char *s, char c)
 	return (count);
 }
 
-static void	cut_str(char **copy, size_t size, char const *s, char c)
+static int	malloc_error(char **copy)
+{
+	size_t	i;
+
+	i = 0;
+	while (copy[i])
+	{
+		free(copy[i]);
+		i++;
+	}
+	free(copy);
+	return (0);
+}
+
+static int	cut_str(char **copy, size_t size, char const *s, char c)
 {
 	size_t	i;
 	size_t	nb;
@@ -49,11 +63,14 @@ static void	cut_str(char **copy, size_t size, char const *s, char c)
 			if (i == size - 1 && s[i] != c)
 				i++;
 			copy[nb] = ft_substr(s, start, i - start);
+			if (!copy[nb])
+				return (malloc_error(copy));
 			nb++;
 			start = -1;
 		}
 		i++;
 	}
+	return (1);
 }
 
 char	**ft_split(char const *s, char c)
@@ -69,7 +86,8 @@ char	**ft_split(char const *s, char c)
 	copy = (char **) malloc(sizeof(char *) * (nb + 1));
 	if (copy == NULL)
 		return (0);
-	cut_str(copy, size, s, c);
+	if (!cut_str(copy, size, s, c))
+		return (0);
 	copy[nb] = '\0';
 	return (copy);
 }
