@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 14:36:54 by bfabri            #+#    #+#             */
-/*   Updated: 2021/11/12 03:14:53 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/11/12 12:18:03 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,6 @@ char	**ft_split(char const *s, char c)
 		return (0);
 	if (!cut_str(copy, size, s, c))
 		return (0);
-	copy[nb] = '\0';
+	copy[nb] = 0;
 	return (copy);
 }
