@@ -6,7 +6,7 @@
 /*   By: bfabri <bfabri@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 14:58:12 by bfabri            #+#    #+#             */
-/*   Updated: 2021/11/12 02:13:59 by bfabri           ###   ########.fr       */
+/*   Updated: 2021/11/12 13:41:52 by bfabri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,6 @@ int	ft_atoi(const char *str)
 	while (str[c] >= '0' && str[c] <= '9')
 	{
 		nb = nb * 10 + (str[c] - '0');
-		if (nb > 2147483647 && sign == 1)
-			return (-1);
-		if (nb > 2147483648 && sign == -1)
-			return (0);
 		c++;
 	}
 	return (nb * sign);
